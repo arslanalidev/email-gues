@@ -1,0 +1,16 @@
+service: email-gueser
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+
+functions:
+  getEmail:
+    handler: src/handler.getEmail
+    events:
+      - http:
+          path: email
+          method: post
+          cors: true
